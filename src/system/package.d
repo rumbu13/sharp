@@ -26,7 +26,7 @@ import system.collections.generic;
 import system.collections.objectmodel;
 
 import core.stdc.math;
-//import core.stdc.string;
+import core.memory;
 
 
 // =====================================================================================================================
@@ -8266,6 +8266,7 @@ final private class ConsoleStream: Stream
             throw new NotSupportedException();
         bool success;
         uint bytesRead;
+        
         if (useFile)
             success = ReadFile(handle, buffer.ptr + offset, count, &bytesRead, null) != 0;
         else

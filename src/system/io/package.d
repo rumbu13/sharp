@@ -883,19 +883,20 @@ private:
         eof = bytesRead == 0;
         bufferLen = 0;
         bufferPos = 0;
-        while (bytesRead > 0)
-        {
-            bufferLen += bytesRead;
-            if (bufferLen < bufferSize)
-            {
-                bytesRead = stream.Read(buffer, bufferLen, bufferSize - bufferLen);
-                eof = bytesRead == 0;
-            }
-            else
-                bytesRead = 0;
-        }
-        
-        bufferPos = 0;
+        bufferLen += bytesRead;
+        //while (bytesRead > 0)
+        //{
+        //    bufferLen += bytesRead;
+        //    if (bufferLen < bufferSize)
+        //    {
+        //        bytesRead = stream.Read(buffer, bufferLen, bufferSize - bufferLen);
+        //        eof = bytesRead == 0;
+        //    }
+        //    else
+        //        bytesRead = 0;
+        //}
+        //
+        //bufferPos = 0;
 
         if (bufferLen > 0 && detectEncoding)
         {

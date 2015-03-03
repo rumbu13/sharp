@@ -262,7 +262,7 @@ struct Marshal
             case COR_E_ARITHMETIC:
                 return new ArithmeticException();
             case COR_E_DIRECTORYNOTFOUND:
-                return new DirectoryNotFoundException();
+               return new DirectoryNotFoundException();
             case COR_E_DLLNOTFOUND:
                 return new DLLNotFoundException();
             case COR_E_ENTRYPOINTNOTFOUND:
@@ -270,7 +270,7 @@ struct Marshal
             case COR_E_EXCEPTION:
                 return new SharpException();
             case COR_E_FILENOTFOUND:
-                return new FileNotFoundException();
+               return new FileNotFoundException();
             case COR_E_FORMAT:
                 return new FormatException();
             case COR_E_INVALIDCAST:
@@ -278,7 +278,7 @@ struct Marshal
             case COR_E_INVALIDOPERATION:
                 return new InvalidOperationException();
             case COR_E_IO:
-                return new IOException();
+               return new IOException();
             case COR_E_NOTSUPPORTED:
                 return new NotSupportedException();
             case COR_E_OBJECTDISPOSED:
@@ -467,7 +467,9 @@ void shutdownCOM()
     CoUninitialize();
 }
 
-static ~this()
-{
-    shutdownCOM();
-}
+
+//cyclic bug
+//static ~this()
+//{
+//    shutdownCOM();
+//}

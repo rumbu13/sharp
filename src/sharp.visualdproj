@@ -11,7 +11,7 @@
   <mscoff>0</mscoff>
   <trace>0</trace>
   <quiet>0</quiet>
-  <verbose>1</verbose>
+  <verbose>0</verbose>
   <vtls>0</vtls>
   <vgc>0</vgc>
   <symdebug>1</symdebug>
@@ -113,10 +113,10 @@ resgen ..\res\strings.resx</preBuildCommand>
   <mscoff>0</mscoff>
   <trace>0</trace>
   <quiet>0</quiet>
-  <verbose>1</verbose>
+  <verbose>0</verbose>
   <vtls>0</vtls>
   <vgc>0</vgc>
-  <symdebug>0</symdebug>
+  <symdebug>2</symdebug>
   <optimize>1</optimize>
   <cpu>0</cpu>
   <isX86_64>0</isX86_64>
@@ -215,7 +215,7 @@ resgen ..\res\strings.resx</preBuildCommand>
   <mscoff>1</mscoff>
   <trace>0</trace>
   <quiet>0</quiet>
-  <verbose>1</verbose>
+  <verbose>0</verbose>
   <vtls>0</vtls>
   <vgc>0</vgc>
   <symdebug>1</symdebug>
@@ -317,10 +317,10 @@ resgen ..\res\strings.resx</preBuildCommand>
   <mscoff>1</mscoff>
   <trace>0</trace>
   <quiet>0</quiet>
-  <verbose>1</verbose>
+  <verbose>0</verbose>
   <vtls>0</vtls>
   <vgc>0</vgc>
-  <symdebug>0</symdebug>
+  <symdebug>2</symdebug>
   <optimize>1</optimize>
   <cpu>0</cpu>
   <isX86_64>1</isX86_64>
