@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ArgumentDecimalSeparator" xml:space="preserve">
+    <value>Decimal separator cannot be an empty string.</value>
+  </data>
+  <data name="ArgumentFallbackNotSupported" xml:space="preserve">
+    <value>This encoding doesn't support the provided fallback mechanism.</value>
+  </data>
+  <data name="ArgumentGroupSize" xml:space="preserve">
+    <value>Every element in the value array should be between one and nine, except for the last element, which can be zero.</value>
+  </data>
+  <data name="ArgumentInvalidCulture" xml:space="preserve">
+    <value>{0} is an invalid culture identifier.</value>
+  </data>
+  <data name="ArgumentInvalidDateTime" xml:space="preserve">
+    <value>The supplied DateTime represents an invalid time.</value>
+  </data>
+  <data name="ArgumentInvalidFlags" xml:space="preserve">
+    <value>Value of flags is invalid.</value>
+  </data>
+  <data name="ArgumentInvalidHighSurrogate" xml:space="preserve">
+    <value>A valid high surrogate character is between 0xd800 and 0xdbff, inclusive.</value>
+  </data>
+  <data name="ArgumentInvalidLowSurrogate" xml:space="preserve">
+    <value>A valid low surrogate character is between 0xdc00 and 0xdfff, inclusive.</value>
+  </data>
+  <data name="ArgumentInvalidUTF16" xml:space="preserve">
+    <value>A valid UTF16 value should not include surrogate codepoint values (0x00d800 - 0x00dfff).</value>
+  </data>
+  <data name="ArgumentInvalidUTF32" xml:space="preserve">
+    <value>A valid UTF32 value is between 0x000000 and 0x10ffff, inclusive, and should not include surrogate codepoint values (0x00d800 - 0x00dfff).</value>
+  </data>
+  <data name="ArgumentMustBeType" xml:space="preserve">
+    <value>Object must be of type {0}.</value>
+  </data>
+  <data name="ArgumentNativeDigit" xml:space="preserve">
+    <value>Each member of the NativeDigits array must be a single text element with a Unicode category Nd (Number, Decimal Digit) indicating it is a digit.</value>
+  </data>
+  <data name="ArgumentNativeDigitsCount" xml:space="preserve">
+    <value>The nativeDigits array must contain exactly ten members.</value>
+  </data>
+  <data name="ArgumentNotAmbiguous" xml:space="preserve">
+    <value>The supplied DateTimeOffset is not in an ambiguous time range.</value>
+  </data>
+  <data name="ArgumentOffsetMinutes" xml:space="preserve">
+    <value>Offset must be specified in whole minutes.</value>
+  </data>
+  <data name="ArgumentOffsetRange" xml:space="preserve">
+    <value>Offset must be within plus or minus 14 hours.</value>
+  </data>
+  <data name="ArgumentOutOfRange" xml:space="preserve">
+    <value>Valid values are between {0} and {1}, inclusive.</value>
+  </data>
+  <data name="ArgumentOutOfRangePositive" xml:space="preserve">
+    <value>Argument must be positive.</value>
+  </data>
+  <data name="ArgumentOutOfRangeStrictlyPositive" xml:space="preserve">
+    <value>Argument must be strictly positive.</value>
+  </data>
+  <data name="ArgumentSringOneChar" xml:space="preserve">
+    <value>String must be exactly one character long.</value>
+  </data>
+  <data name="ArgumentStreamNotReadable" xml:space="preserve">
+    <value>Stream was not readable.</value>
+  </data>
+  <data name="ArgumentStreamNotWriteable" xml:space="preserve">
+    <value>Stream was not writeable.</value>
+  </data>
+  <data name="ArgumentTimeZoneMismatch" xml:space="preserve">
+    <value>The conversion could not be completed because the supplied DateTime did not have the Kind property set correctly. </value>
+  </data>
+  <data name="ArgumentUTCOutOfRange" xml:space="preserve">
+    <value>The UTC time represented when the offset is applied must be between year 0 and 10,000.</value>
+  </data>
+  <data name="ExceptionArgument" xml:space="preserve">
+    <value>Value does not fall within the expected range.</value>
+  </data>
+  <data name="ExceptionArgumentNull" xml:space="preserve">
+    <value>Value cannot be null.</value>
+  </data>
+  <data name="ExceptionArgumentOutOfRange" xml:space="preserve">
+    <value>Specified argument was out of the range of valid values.</value>
+  </data>
+  <data name="ExceptionArgumentOutOfRangeActualValue" xml:space="preserve">
+    <value>Actual value was {0}.</value>
+  </data>
+  <data name="ExceptionArithmetic" xml:space="preserve">
+    <value>Overflow or underflow in the arithmetic operation.</value>
+  </data>
+  <data name="ExceptionCOM" xml:space="preserve">
+    <value>Error HRESULT E_FAIL has been returned from a call to a COM component.</value>
+  </data>
+  <data name="ExceptionCultureNotFound" xml:space="preserve">
+    <value>Culture is not supported.</value>
+  </data>
+  <data name="ExceptionEndOfInnerStackTrace" xml:space="preserve">
+    <value>--- End of inner exception stack trace ---</value>
+  </data>
+  <data name="ExceptionEntryPointNotFound" xml:space="preserve">
+    <value>Entry point was not found.</value>
+  </data>
+  <data name="ExceptionExternal" xml:space="preserve">
+    <value>External component has thrown an exception.</value>
+  </data>
+  <data name="ExceptionFormat" xml:space="preserve">
+    <value>One of the identified items was in an invalid format.</value>
+  </data>
+  <data name="ExceptionInvalidCast" xml:space="preserve">
+    <value>Specified cast is not valid.</value>
+  </data>
+  <data name="ExceptionInvalidOperation" xml:space="preserve">
+    <value>Operation is not valid due to the current state of the object.</value>
+  </data>
+  <data name="ExceptionIO" xml:space="preserve">
+    <value>I/O error occurred.</value>
+  </data>
+  <data name="ExceptionNotImplemented" xml:space="preserve">
+    <value>The method or operation is not implemented.</value>
+  </data>
+  <data name="ExceptionNotSupported" xml:space="preserve">
+    <value>Specified method is not supported.</value>
+  </data>
+  <data name="ExceptionObjectDisposed" xml:space="preserve">
+    <value>Cannot access a disposed object.</value>
+  </data>
+  <data name="ExceptionOutOfMemory" xml:space="preserve">
+    <value>Out of memory.</value>
+  </data>
+  <data name="ExceptionOverflow" xml:space="preserve">
+    <value>Arithmetic operation resulted in an overflow.</value>
+  </data>
+  <data name="ExceptionSerialization" xml:space="preserve">
+    <value>Serialization error.</value>
+  </data>
+  <data name="ExceptionSystem" xml:space="preserve">
+    <value>System error.</value>
+  </data>
+  <data name="ExceptionSystemError" xml:space="preserve">
+    <value>System error {0}.</value>
+  </data>
+  <data name="ExceptionTypeLoad" xml:space="preserve">
+    <value>Failure has occurred while loading a type.</value>
+  </data>
+  <data name="ExceptionWasThrown" xml:space="preserve">
+    <value>An exception of type {0} was thrown.</value>
+  </data>
+  <data name="ExeptionDllNotFound" xml:space="preserve">
+    <value>Dll was not found.</value>
+  </data>
+  <data name="FormatArgAlignmentOverflow" xml:space="preserve">
+    <value>Argument alignment overflow at position {0}.</value>
+  </data>
+  <data name="FormatArgIndexInvalid" xml:space="preserve">
+    <value>Invalid argument index at position {0}.</value>
+  </data>
+  <data name="FormatArgIndexOverflow" xml:space="preserve">
+    <value>Argument index overflow at position {0}.</value>
+  </data>
+  <data name="FormatArgUnterminated" xml:space="preserve">
+    <value>Unterminated argument at position {0}.</value>
+  </data>
+  <data name="FormatExpectingDigit" xml:space="preserve">
+    <value>Expecting decimal digit at position {0}.</value>
+  </data>
+  <data name="InvalidCast" xml:space="preserve">
+    <value>Invalid cast from '{0}' to '{1}'</value>
+  </data>
+  <data name="InvalidCastDBNull" xml:space="preserve">
+    <value>Object cannot be cast from DBNull to other types.</value>
+  </data>
+  <data name="InvalidOperationReadOnly" xml:space="preserve">
+    <value>Instance is read-only.</value>
+  </data>
+  <data name="InvalidOperationTimeouts" xml:space="preserve">
+    <value>Timeouts are not supported on this stream.</value>
+  </data>
+  <data name="ObjectDisposedFileClosed" xml:space="preserve">
+    <value>Cannot access a closed file.</value>
+  </data>
+  <data name="ObjectDisposedStreamClosed" xml:space="preserve">
+    <value>Cannot access a closed stream.</value>
+  </data>
+  <data name="ObjectName" xml:space="preserve">
+    <value>Object name: '{0}'</value>
+  </data>
+  <data name="ParameterName" xml:space="preserve">
+    <value>Parameter name: '{0}'.</value>
+  </data>
+  <data name="ExceptionFileNotFound" xml:space="preserve">
+    <value>Unable to find the specified file.</value>
+  </data>
+  <data name="ArgumentFileName" xml:space="preserve">
+    <value>File name: '{0}'.</value>
+  </data>
+  <data name="ExceptionDirectoryNotFound" xml:space="preserve">
+    <value>Attempted to access a path that is not on the disk.</value>
+  </data>
+  <data name="ExceptionUnauthorizedAccess" xml:space="preserve">
+    <value>Attempted to perform an unauthorized operation.</value>
+  </data>
+</root>

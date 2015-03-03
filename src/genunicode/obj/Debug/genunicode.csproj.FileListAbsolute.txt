@@ -1,0 +1,15 @@
+C:\sharp\genunicode\bin\Debug\genunicode.exe.config
+C:\sharp\genunicode\bin\Debug\genunicode.exe
+C:\sharp\genunicode\bin\Debug\genunicode.pdb
+C:\sharp\genunicode\obj\Debug\genunicode.csprojResolveAssemblyReference.cache
+C:\sharp\genunicode\obj\Debug\genunicode.exe
+C:\sharp\genunicode\obj\Debug\genunicode.pdb
+D:\sharp\src\genunicode\bin\Debug\genunicode.exe.config
+D:\sharp\src\genunicode\bin\Debug\genunicode.exe
+D:\sharp\src\genunicode\bin\Debug\genunicode.pdb
+D:\sharp\src\genunicode\obj\Debug\genunicode.csprojResolveAssemblyReference.cache
+D:\sharp\src\genunicode\obj\Debug\genunicode.exe
+D:\sharp\src\genunicode\obj\Debug\genunicode.pdb
+D:\sharp\src\bin\Debug\genunicode.exe.config
+D:\sharp\src\bin\Debug\genunicode.exe
+D:\sharp\src\bin\Debug\genunicode.pdb
