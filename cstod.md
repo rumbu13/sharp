@@ -18,7 +18,7 @@ class Hello
 import std.stdio;
 void main(string[] args)
 {
-    writeln("Hello world"!)
+    writeln("Hello world")
 }
 ```
 Things we learnt so far:
@@ -27,7 +27,7 @@ Things we learnt so far:
 - static methods can be declared outside any class;
 - we can call directly any method even if it's not declared in a class (`writeln`);
 - `writeln` is D equivalent for C# `Console.WriteLine`;
-- syntax is exactly the same as in C# (method definitions, string qualifiers, array declarations)
+- syntax is exactly the same as in C# (method definitions, string qualifiers, array declarations, comments)
 - many of the keywords are exactly the same (`void`, `string`);
 
 #Type system
@@ -54,7 +54,7 @@ int[] array;
 int array[20]
 ```
 ##Pointers
-Since D is not a managed language, you are free to use pointers anywhere in the code, without encompassing them in an unsafe context. On th contrary, D code is by default unsafe, but you can force the safe context using the `@safe` keyword:
+Since D is not a managed language, you are free to use pointers anywhere in the code, without encompassing them in an unsafe context. On the contrary, D code is by default unsafe, but you can force the safe context using the `@safe` keyword:
 - C#
 ```
 int value;
@@ -87,7 +87,7 @@ Since D doesn't need to declare methods inside a class, you can declare also a `
 A notable difference between C# and D is the fact that __delegates are not multicast__ in D, therefore you cannot join or remove them.
 
 ##Enums
-There is no difference between enum declarations, except that so called C# flags nums are not necessarly decorated with attributes:
+There is no difference between enum declarations, except that so called C# flags enums are not necessarely decorated with the [Flags] attribute:
 - C#
 ```
 enum Option { 
@@ -117,7 +117,7 @@ enum Options {
 ##Structs and classes
 Struct and classes are declared exactly the same way in D except:
 - There is no explicit layout in D. Nevertheless, there is a solution in the standard library.
-- Structs cannot implement interfaces
+- Structs cannot implement interfaces;
 - D has _unions_, the equivalent of a C# _struct_ with explicit layout where all fields offsets are 0:
 
 -C#:
