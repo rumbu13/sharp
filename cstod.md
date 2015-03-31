@@ -163,6 +163,35 @@ class C(T) if (is(typeof(new T()) == T))
 ```
 The template constraint will be read as _if the result of expresssion `new T()` is of type T_. If the T class has no contructor or is some other type, the `new T()` expression will result in an error or some other type, therefore the constraint will not be satisfied.
 
+##Events
+There is no such concept in D language. Various solutions exists to simulate the same behaviour.
+
+##Dynamic Types
+There is no such concept in D language. All types must be known at compile time. 
+
+##Boxing
+Value types in D are not boxed or unboxed automatically and do not inherit from ValueType. Also, you cannot implement interfaces for value types. Various solutions exists in the standard library to box or unbox a value.
+
+##Nullable types
+Value types are not nullable in D language. There are solutions in the standard library to simulate this behaviour:
+
+- C#:
+```
+int? x = 10
+if (x.HasValue)...
+int y = x.Value;
+int z = x.GetValueOrDefault()
+x = null;
+```
+- D:
+```
+import std.typecons;
+Nullable!int x = 10
+if (x.isNull)...
+int y = x.get();
+int z = x.isNull ? int.init : x.get();
+x.nullify();
+```
 
 
 
