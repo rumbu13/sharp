@@ -53,7 +53,24 @@ fixed int array[20];
 int[] array;
 int array[20]
 ```
-
+##Pointers
+Since D is not a managed language, you are free to use pointers anywhere in the code, without encompassing them in an unsafe context. On th contrary, D code is by default unsafe, but you can force the safe context using the `@safe` keyword:
+- C#
+```
+int value;
+//here you can't use pointers
+unsafe {
+    int * p = &value
+}
+```
+- D
+```
+int value;
+int * p = &value
+@safe {
+    //here you can't use pointers
+}
+```
 
 ##Delegates
 Delegates in D are declared with the same keyword, but the return type precedes the declaration:
@@ -84,7 +101,7 @@ enum Options {
     All = Option1 | Option2
 }
 ```
-- D
+- D:
 ```
 enum Option { 
     Option1, 
@@ -96,6 +113,14 @@ enum Options {
     Option2,
     All = Option1 | Option2
 }
+```
+##Structs
+- C#:
+```
+struct S {
+    int field1;
+    short field2;
+    
 ```
 
 
