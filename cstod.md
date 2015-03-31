@@ -237,7 +237,7 @@ class Fibonacci : IEnumerable<int>
     }
 }
 
-class FibonacciEnumerator : IEnumerator<Book>
+class FibonacciEnumerator : IEnumerator<int>
 {
     private int n1 = 0;
     private int n2 = 1;
