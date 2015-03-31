@@ -114,8 +114,28 @@ enum Options {
     All = Option1 | Option2
 }
 ```
-##Structs
-Struct are declared exactly the same way in D.
+##Structs and classes
+Struct and classes are declared exactly the same way in D except:
+- There is no explicit layout in D. Nevertheless, there is a solution in the standard library.
+- D has _unions_, the equivalent of a C# _struct_ with explicit layout where all fields offsets are 0:
+
+-C#:
+```
+[StructLayout(LayoutKind.Explicit)]
+struct MyUnion {
+  [FieldOffset(0)]
+  int someInt;
+  [FieldOffset(0)]
+  float someFloat;
+}
+```
+-D:
+```
+union MyUnion {
+  int someInt;
+  float someFloat;
+}
+```
 
 ##Generic Types
 D is not using generics, instead, it has a more powerful concept named __templates__.
