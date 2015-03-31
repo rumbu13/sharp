@@ -1,5 +1,5 @@
 #Introduction
-Hello World in C#
+- Hello World in C#
 ```
 //helloworld.cs
 using System;
@@ -12,7 +12,7 @@ class Hello
 }
 ```
 
-Hello world in D:
+- Hello world in D:
 ```
 //helloworld.d
 import std.stdio;
@@ -40,6 +40,64 @@ Basic type names are very similar in both languages with the following differenc
 - There are also three types of string in D: `string`, `wstring` and `dstring`. The direct equivalent of C# `string` is in fact D `wstring`. These are not keywords in D, they are in fact declared as aliases to immutable char arrays.
 - There is another floating point type in D: `real` with no type equivalence in C#.
 - Complex floating point types `Complex<T>` are keywords in D: `cfloat, cdouble, creal` and they imaginary counterparts are `ifloat`, `idouble`, `ireal`;
+
+##Arrays
+Arrays in D are not too different than the ones form C#:
+- C#:
+``` 
+int[] array;
+fixed int array[20];
+```
+- D:
+```
+int[] array;
+int array[20]
+```
+
+
+##Delegates
+Delegates in D are declared with the same keyword, but the return type precedes the declaration:
+- C#:
+```
+delegate int Foo(int x);
+```
+- D:
+```
+int delegate(int x) Foo;
+int function(int x) Foo;
+```
+Since D doesn't need to declare methods inside a class, you can declare also a `function`, equivalent to a delegate without class context.
+A notable difference between C# and D is the fact that __delegates are not multicast__ in D, therefore you cannot join or remove them.
+
+##Enums
+There is no difference between enum declarations, except that so called C# flags nums are not necessarly decorated with attributes:
+- C#
+```
+enum Option { 
+    Option1, 
+    Option2
+}
+[Flags]
+enum Options {
+    Option1,
+    Option2,
+    All = Option1 | Option2
+}
+```
+- D
+```
+enum Option { 
+    Option1, 
+    Option2
+}
+
+enum Options {
+    Option1,
+    Option2,
+    All = Option1 | Option2
+}
+```
+
 
 
 
