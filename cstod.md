@@ -117,6 +117,7 @@ enum Options {
 ##Structs and classes
 Struct and classes are declared exactly the same way in D except:
 - There is no explicit layout in D. Nevertheless, there is a solution in the standard library.
+- Structs cannot implement interfaces
 - D has _unions_, the equivalent of a C# _struct_ with explicit layout where all fields offsets are 0:
 
 -C#:
@@ -134,6 +135,35 @@ struct MyUnion {
 union MyUnion {
   int someInt;
   float someFloat;
+}
+```
+##Interfaces
+Interfaces are declared in the same way as in C#, the only difference being that interfaces in D can have final methods, equivalent to C# abstract class:
+
+- C#:
+```
+interface I {
+    void Method();
+}
+
+abstract class C {
+   void Method()
+   {
+      Console.WriteLine("hello");
+   }
+}
+```
+- D:
+```
+interface I {
+    void Method();
+}
+
+interface C {
+   final void Method()
+   {
+      Console.WriteLine("hello");
+   }
 }
 ```
 
@@ -170,7 +200,7 @@ There is no such concept in D language. Various solutions exists to simulate the
 There is no such concept in D language. All types must be known at compile time. 
 
 ##Boxing
-Value types in D are not boxed or unboxed automatically and do not inherit from ValueType. Also, you cannot implement interfaces for value types. Various solutions exists in the standard library to box or unbox a value.
+Value types in D are not boxed or unboxed automatically and do not inherit from ValueType. Also, you cannot implement interfaces for value types. 
 
 ##Nullable types
 Value types are not nullable in D language. There are solutions in the standard library to simulate this behaviour:
