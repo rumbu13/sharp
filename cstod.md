@@ -117,7 +117,31 @@ enum Options {
 ##Structs
 Struct are declared exactly the same way in D.
 
+##Generic Types
+D is not using generics, instead, it has a more powerful concept named __templates__.
 
+- C#:
+```
+void Foo(T)(T arg);
+class C(T) where T: class;
+class D(T) where T: C;
+```
+- D:
+```
+void Foo(T)(T arg);
+class C(T) if is(T == class);
+class C(T) if is(T : C);
+```
+There are no direct equivalents of other generic constraints, but the D template system is so versatile that you can create your own. 
+- C#:
+```
+class C(T) where T: new();
+```
+- D:
+```
+class C(T) if (is(typeof(new T()) == T))
+```
+The template constraint will be read as _if the result of expresssion `new T()` is of type T_. If the T class has no contructor or is some other type, the `new T()` expression will result in an error or some other type, therefore the constraint will not be satisfied.
 
 
 
