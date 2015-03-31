@@ -24,7 +24,7 @@ void main(string[] args)
 Things we learnt so far:
 - standard file extension for D source code files is `.d`
 - we `import` a module instead of `using` a namespace;
-- static methods can be declared outside any class;
+- static methods can be declared outside a class;
 - we can call directly any method even if it's not declared in a class (`writeln`);
 - `writeln` is D equivalent for C# `Console.WriteLine`;
 - syntax is exactly the same as in C# (method definitions, string qualifiers, array declarations, comments)
@@ -224,9 +224,9 @@ x.nullify();
 ```
 ##Enumerable types
 In C#, a type can be considered enumerable if implements the `IEnumerable` interface. In D, a type is considered enumerable (Range is more used as the concept in D) if:
-- implements three methods named `popFront`, `empty` and `front` - or -,
-- implements a special operator named `opApply`
-- 
+- implements three methods named `popFront`, `empty` and `front` or,
+- implements a special operator named `opApply`;
+
 - C#:
 ```
 class Fibonacci : IEnumerable<int>
@@ -289,7 +289,9 @@ class Fibonacci
 }
 
 ```
+
 - D (opApply)
+
 ```
 class Fibonacci 
 {
