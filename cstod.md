@@ -222,9 +222,97 @@ int y = x.get();
 int z = x.isNull ? int.init : x.get();
 x.nullify();
 ```
+##Enumerable types
+In C#, a type can be considered enumerable if implements the `IEnumerable` interface. In D, a type is considered enumerable (Range is more used as the concept in D) if:
+- implements three methods named `popFront`, `empty` and `front` - or -,
+- implements a special operator named `opApply`
+- 
+- C#:
+```
+class Fibonacci : IEnumerable<int>
+{
+    public IEnumerator<int> GetEnumerator()
+    {
+        return new FibonacciEnumerator();
+    }
+}
 
+class FibonacciEnumerator : IEnumerator<Book>
+{
+    private int n1 = 0;
+    private int n2 = 1;
+    
+    public int Current
+    {
+        get { return n1 + n2; }
+    }
+    
+    public void Reset()
+    {
+        n1 = 0;
+        n2 = 1;
+    }
+    
+    public bool MoveNext()
+    {
+       int temp = n2;
+       n2 += n1;
+       n1 = temp;
+       return true;
+    }
+}
 
+```
+- D (front, popFront, empty)
+```
+class Fibonacci 
+{
+    private int n1 = 0;
+    private int n2 = 1;
+    
+    public int front()
+    {
+       return n1 + n2;
+    }
 
+    public void popFront()
+    {
+       int temp = n2;
+       n2 += n1;
+       n1 = temp;
+    }
+
+    public bool empty()
+    {
+        return false; 
+    }
+}
+
+```
+- D (opApply)
+```
+class Fibonacci 
+{
+    private int n1 = 0;
+    private int n2 = 1;
+    
+    int opApply(int delegate(int) fib)
+    {
+        int ret = 0;
+        int n1 = 0;
+        int n2 = 1;
+        while (ret == 0)
+        {
+            int temp = n1 + n2;
+            ret = fib(temp);
+            n1 = n2;
+            n2 = temp;
+        }
+        return ret;
+    }
+}
+
+```
 
 
 
