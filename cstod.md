@@ -1,0 +1,53 @@
+#Introduction
+Hello World in C#
+```
+//helloworld.cs
+using System;
+class Hello
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Hello world!");
+    }
+}
+```
+
+Hello world in D:
+```
+//helloworld.d
+import std.stdio;
+void main(string[] args)
+{
+    writeln("Hello world"!)
+}
+```
+Things we learnt so far:
+- standard file extension for D source code files is `.d`
+- we `import` a module instead of `using` a namespace;
+- static methods can be declared outside any class;
+- we can call directly any method even if it's not declared in a class (`writeln`);
+- `writeln` is D equivalent for C# `Console.WriteLine`;
+- syntax is exactly the same as in C# (method definitions, string qualifiers, array declarations)
+- many of the keywords are exactly the same (`void`, `string`);
+
+#Type system
+##Built-in types
+Basic type names are very similar in both languages with the following differences:
+- The 8 bit signed integer from C# `sbyte` is written in D as `byte`;
+- The 8 bit unsigned integer from C# `byte` is written in D as `ubyte`;
+- There is no type equivalence for `decimal`
+- There are three types of char in D: `char`, `wchar` and `dchar`, each of them corresponding to an UTF encoding : UTF-8, UTF-16 and UTF-32. Since C# is using internally UTF-16 chars, the direct equivalent of C# `char` is D `wchar`.
+- There are also three types of string in D: `string`, `wstring` and `dstring`. The direct equivalent of C# `string` is in fact D `wstring`. These are not keywords in D, they are in fact declared as aliases to immutable char arrays.
+- There is another floating point type in D: `real` with no type equivalence in C#.
+- Complex floating point types `Complex<T>` are keywords in D: `cfloat, cdouble, creal` and they imaginary counterparts are `ifloat`, `idouble`, `ireal`;
+
+
+
+
+
+
+
+
+
+
+
