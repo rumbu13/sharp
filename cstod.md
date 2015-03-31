@@ -115,13 +115,9 @@ enum Options {
 }
 ```
 ##Structs
-- C#:
-```
-struct S {
-    int field1;
-    short field2;
-    
-```
+Struct are declared exactly the same way in D.
+
+
 
 
 
