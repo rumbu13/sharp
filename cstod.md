@@ -388,7 +388,7 @@ Differences:
 - `null` values are compared using `is` operator. The `is` operator has a very different meaning in D.
 - In D, the conditional expression can be any other type than `bool`
 
-The `switch case` statement has exactly the same structure as in C#, except tha D provides a `final switch` statement intended to use with enum types:
+The `switch case` statement has exactly the same structure as in C#, except that D provides a `final switch` statement intended to use with enum types:
 - C#:
 ```
 enum Color { Blue, Red, Green }
@@ -411,7 +411,28 @@ final switch (c):
     //compilation error if the switch statement does not treat all members of Color.
 }
 ```
+##Iteration statements
+`for`, `do`, and `while` semantics are exactly the same in D.
+`foreach` statement is more versatile in D and has also reverse counterpart - `foreach_reverse`:
 
+- C#
+```
+foreach (element in enumerable) { .. }
+```
+- D
+```
+foreach (element;range) { ... } 
+foreach (index; element; range) { ... }
+foreach (index; start .. end) { .. }
+```
+Also, in D, the iteration element can be modified inside the loop if it's passed by reference:
+```
+int[] array;
+foreach (ref int i; array)
+{
+    i = i + 1;
+}
+```
 
 
 
