@@ -421,9 +421,9 @@ foreach (element in enumerable) { .. }
 ```
 - D
 ```
-foreach (element;range) { ... } 
+foreach (element; range) { ... } 
 foreach (index; element; range) { ... }
-foreach (index; start .. end) { .. }
+foreach (index; start .. end) { ... }
 ```
 Also, in D, the iteration element can be modified inside the loop if it's passed by reference:
 ```
@@ -433,6 +433,47 @@ foreach (ref int i; array)
     i = i + 1;
 }
 ```
+##Jump statements
+`break`, `continue`, `default`, `goto`, `return` semantics are exactly the same in D.
+There is no `yield return` or `yield break` statement in D, but it can be simulated using _Voldemort_ types. _Voldemort_ types are return types of functions unknown outside the function.
+
+- C#:
+```
+IEnumerable<int> GiveMeFive()
+{
+    yield return 1;
+    yield return 2;
+    yield return 3;
+    yield return 4;
+    yield return 5;
+}
+```
+- D
+```
+auto GiveMeFive()
+{
+    struct Voldemort
+    {
+        int opApply(int delegate(int) dg)
+        {
+            int ret = dg(1);
+            if (ret) return ret;
+            ret = dg(2);
+            if (ret) return ret;
+            ret = dg(3);
+            if (ret) return ret;
+            ret = dg(4);
+            if (ret) return ret;
+            ret = dg(5);
+            return ret;
+        }
+    }
+    return Voldemort();
+}
+```
+
+
+
 
 
 
