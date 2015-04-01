@@ -18,7 +18,7 @@ class Hello
 import std.stdio;
 void main(string[] args)
 {
-    writeln("Hello world")
+    writeln("Hello world");
 }
 ```
 Things we learnt so far:
@@ -575,6 +575,87 @@ There is no `async` or `await` equivalent in D, you'll need to code yourself the
 - You can copy-paste parameterized code using the `mixin` statement: ( `mixin("x = 0;")`)
 - You can save some typing using the `with` statement: `with(expression) { statement1; statement2; }' 
 For further details, please consult the D official language reference on dlang.org.
+
+#Arrays
+
+In D, arrays are not classes, but they keep the same reference semantics in D.
+
+- C#:
+```
+int[] array1;
+int[] array2 = { 1, 2, 3, 4, 5 };
+int[,] array3 = new int[5, 10];
+int[][] array4 = new int[10][20];
+int[] array5 = array1.Clone();
+int l = array1.Length;
+Array.Sort(array5)
+Array.Reverse(array5);
+Array.Resize(array5, 3);
+int * p = array2;
+
+```
+- D:
+```
+int[] array1;
+int[] array2 = [ 1, 2, 3, 4, 5 ];
+int[][] array3 = new int[5][10];
+int[][] array4 = new int[10][20];
+int[] array5 = array1.dup();
+size_t l = array1.length;
+array5.sort();
+array5.reverse();
+array5.length = 3;
+int * p = array2.ptr
+
+```
+- array initialization in D is done by enumerating values in right brackets instead of curly brackets;
+- there are no multidimensional arrays in D, use jagged arrays instead;
+- arrays are not implicitly convertible to pointers, use the `ptr` property for the same effect;
+- array length and indices are not necesarely of type `int`, but of type `size_t`. This is in fact an alias to `uint` or to `ulong`, depending of the target architecture (32-bit or 64-bit). A similar variable size type in C# is `IntPtr`.
+- array length in D is not fixed, you can simply resize an array by specifying a new length; 
+
+#Strings
+
+In D, strings are not classes like in C#, just simple arrays. In fact, strings are declared in D as:
+```
+alias string = immutable(char)[];
+alias wstring = immutable(wchar)[];
+alias dstring = immutable(dchar)[];
+```
+The direct equivalent of C# `string` class is D `wstring`, a UTF-16 encoded array of characters. In D, strings are not directly convertible to char*, instead you can use the `ptr` property of any array. Special care must be taken because D strings are not always zero terminated.
+
+- C#:
+```
+string s = "hello" + " " + "world";
+string s2 = "The path is C:\\Windows";
+string s3 = @"The path is C:\Windows";
+string s4 = @" this is a
+   multiline string";
+char* zeroTerminated;
+char[] charArray;
+string s = new string(zeroTerminated);
+string s = new string(charArray);
+```
+- D:
+```
+string s = "hello" ~ " " ~ "world";
+string s2 = "The path is C:\\Windows";
+string s3 = r"The path is C:\Windows";
+string s4 = q" this is a
+   multiline string";
+char* zeroTerminated;
+char[] charArray;
+string s = zeroTerminated[0 .. strlen(zeroTerminated)].idup;
+string s = charArray.idup;
+```
+- strings are concatenated in D using `~` operator;
+- verbatim strings (named Wysiwyg strings in D) are declared using the `r` prefix or `q` prefix if they are multi-line;
+- initializing a string from a char* or char[] is done by duplicating the memory and making it immutable (idup).
+
+Notes:
+- strings in D are not culture sensitive by default like in C#. Sorting, finding, comparing them or changing case can lead to unexpected results, strings comparisons and transformations are performed in D with array semantics (ordinal).
+- there is no `StringBuilder` class in D to manipulate strings. Instead you can use the `std.array.Appender!string`, but it's optimized only for append operations, inserts and removes are not cheap in terms of performance.
+
 
 
 
