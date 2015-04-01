@@ -316,6 +316,44 @@ class Fibonacci
 
 ```
 
+#Statements
+
+##Declaring variables
+- C#:
+```
+int x;
+string str = "abc";
+const long l = 10;
+```
+- D:
+```
+int x;
+string str = "abc";
+immutable long l = 10;
+```
+
+##Expressions
+- C#:
+```
+double average = (a + b) / 2; // assignment expression
+foo.bar(); // method call
+SomeClass c = new SomeClass(); // class initialization
+SomeStruct s = new SomeStruct(); //struct initialization
+List<T> list = new List<T>();
+Dictionary<string, int> = new Dictionary<string, int>();
+```
+- D:
+```
+double average = (a + b) / 2;  // assignment expression
+foo.bar(); // method call
+SomeClass c = new SomeClass(); // class initialization
+SomeStruct s = SomeStruct(); //struct initialization
+List!T list = new List!T();
+Dictionary!(string, int) = new Dictionary!(string, int)!
+```
+Differences:
+- Structs in D are initialized without the `new` keyword.
+- Generic types in D are initialized using `!` and by specifing types between parantheses. If there is only one specialisation, parantheses can be omitted.
 
 
 
