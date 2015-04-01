@@ -355,8 +355,62 @@ Differences:
 - Structs in D are initialized without the `new` keyword.
 - Generic types in D are initialized using `!` and by specifing types between parantheses. If there is only one specialisation, parantheses can be omitted.
 
+##Selection statements
+The `if else` statement has the same structure as in C#:
 
+- C#:
+```
+bool b;
+int a;
+SomeClass c;
+void* p;
 
+if (b) { ... }
+if (a == 10) { .... } else { ... }
+if (c == null) { ... }
+if (p != IntPtr.Zero) { ... }
+```
+- D:
+```
+bool b;
+int a;
+SomeClass c;
+void* p;
+
+if (b) { ... }
+if (a == 10) { .... } else { ... }
+if (a) { ... }
+if (c is null) { ... }
+if (!c) { ... }
+if (p) { ... }
+```
+Differences:
+- `null` values are compared using `is` operator. The `is` operator has a very different meaning in D.
+- In D, the conditional expression can be any other type than `bool`
+
+The `switch case` statement has exactly the same structure as in C#, except tha D provides a `final switch` statement intended to use with enum types:
+- C#:
+```
+enum Color { Blue, Red, Green }
+Color c;
+switch (c):
+{
+    case Color.Blue: ... break;
+    case Color.Red:  ... break;
+    default: ... break;
+}
+```
+- D:
+```
+enum Color { Blue, Red, Green }
+Color c;
+final switch (c):
+{
+    case Color.Blue: ... break;
+    case Color.Red:  ... break;
+    //compilation error if the switch statement does not treat all members of Color.
+}
+```
 
 
 
