@@ -478,7 +478,8 @@ auto GiveMeFive()
 ```
 
 ##Exception handling
-`try`, `catch`, `finally` semantics are exactly the same in D, but the `Exception` hierarchy is different. Your custom exceptions must derive from `Exception` class like in C#, but `Exception` class is inheriting the `Error` and `Throwable`. The last two exceptions are not intended to be caught, being considered fatal errors.
+`try`, `catch`, `finally` and `throw` semantics are exactly the same in D, but the `Exception` hierarchy is different. Your custom exceptions must derive from `Exception` class like in C#, but `Exception` class is inheriting `Error` and `Throwable`. The last two exceptions are not intended to be caught, being considered fatal errors.
+
 Another way to handle exceptions in D is using `scope` statements:
 ```
 void Foo()
@@ -487,7 +488,37 @@ void Foo()
     scope(success) { // this block is executed at the end of the function if no exception is thrown }
     scope(failure) { // this block is executed at the end of the function if exception is thrown }
 ```
+##Locking
+Locking at method level in D is done using a keyword (`synchronized`) instead of an attribute. In statements, the same keyword is used instead of `lock` but a locking object is not always required:
 
+- C#:
+```
+[MethodImpl(MethodImplOptions.Synchronized)]
+void Foo() { ... }
+
+void Bar()
+{
+    lock(someObject) { ... }
+}
+```
+
+- D:
+```
+synchronized void Foo() { ... }
+
+void Bar()
+{
+    synchronized(someObject) { ... }
+    //also
+    synchronized  { ... }
+}
+```
+
+##Pointer operations
+D garbage collector is not a moving one, there is no need to use the `fixed` statement, you can perform pointer operations anywhere in code.
+
+#Asynchrony
+There is no asynchrony support in D, you'll need to code yuourself the mechanisms using threads or fibers from the core.thread runtime library.
 
 
 
