@@ -199,10 +199,53 @@ class C(T) if (is(typeof(new T()) == T))
 The template constraint will be read as _if the result of expresssion `new T()` is of type T_. If the T class has no contructor or is some other type, the `new T()` expression will result in an error or some other type, therefore the constraint will not be satisfied.
 
 ##Events
-There is no such concept in D language. Various solutions exists to simulate the same behaviour.
+There is no such concept in D language, but D programmers prefer to use [signals and slots](http://dlang.org/phobos/std_signals.html) instead of events. If you are keen to use events in D, a quick and dirty way to implement them can be found below:
+
+- C#:
+```
+delegate void MyEventHandler(object sender, EventArgs e);
+class MyClass
+{
+    event ChangedEventHandler Changed;
+}
+
+```
+- D:
+```
+struct Event(Sender, Args)
+{
+    void delegate(Sender, Args)[] delegates;
+    void opCall(Sender sender, Args args)
+    {
+        foreach(dg; delegates)
+            dg(sender, args);
+    }
+    void opOpAssign(string op)(void delegate(Sender, Args) dg) if (op == "+")
+    {
+        delegates ~= dg;
+    }
+    void opOpAssign(string op)(void delegate(Sender, Args) dg) if (op == "-")
+    {
+        for(size_t i = 0; i < delegates.length; i++)
+            if (delegates[i] is dg)
+            {
+                delegates = delegates[0 .. i] ~ delegates[i + 1 .. $];
+            }
+    }
+    
+}
+
+alias MyEventHandler = void delegate (object sender, EventArgs e);
+class MyClass
+{
+    Event!(object, EventArgs) Changed;
+}
+
+```
 
 ##Dynamic Types
-There is no such concept in D language. All types must be known at compile time. 
+There is no such concept in D language. All types must be known at compile time but the same semantics can be simulated by [forwarding](http://dlang.org/operatoroverloading.html#dispatch).
+
 
 ##Boxing
 Value types in D are not boxed or unboxed automatically and do not inherit from ValueType. Also, you cannot implement interfaces for value types. 
