@@ -576,7 +576,9 @@ There is no `async` or `await` equivalent in D, you'll need to code yourself the
 - You can save some typing using the `with` statement: `with(expression) { statement1; statement2; }' 
 For further details, please consult the D official language reference on dlang.org.
 
-#Arrays
+#More about types
+
+##Arrays
 
 In D, arrays are not classes, but they keep the same reference semantics in D.
 
@@ -614,7 +616,7 @@ int * p = array2.ptr
 - array length and indices are not necesarely of type `int`, but of type `size_t`. This is in fact an alias to `uint` or to `ulong`, depending of the target architecture (32-bit or 64-bit). A similar variable size type in C# is `IntPtr`.
 - array length in D is not fixed, you can simply resize an array by specifying a new length; 
 
-#Strings
+##Strings
 
 In D, strings are not classes like in C#, just simple arrays. In fact, strings are declared in D as:
 ```
@@ -655,6 +657,7 @@ string s = charArray.idup;
 Notes:
 - strings in D are not culture sensitive by default like in C#. Sorting, finding, comparing them or changing case can lead to unexpected results, strings comparisons and transformations are performed in D with array semantics (ordinal).
 - there is no `StringBuilder` class in D to manipulate strings. Instead you can use the `std.array.Appender!string`, but it's optimized only for append operations, inserts and removes are not cheap in terms of performance.
+- formating is done in C way. Please read [printf](http://www.cplusplus.com/reference/cstdio/printf/) documentation.
 
 
 
