@@ -515,10 +515,34 @@ void Bar()
 ```
 
 ##Pointer operations
-D garbage collector is not a moving one, there is no need to use the `fixed` statement, you can perform pointer operations anywhere in code.
+D garbage collector is not a moving one, there is no need to use the `fixed` statement, you can perform pointer operations anywhere in code. Also, value types (including structs) are by default created on stack, the garbage collector is not involved in this case and you can directly reference them using a pointer.
 
-#Asynchrony
-There is no asynchrony support in D, you'll need to code yuourself the mechanisms using threads or fibers from the core.thread runtime library.
+- C#:
+```
+struct Point { int x, y; }
+unsafe void Foo()
+{
+    Point s = new Point();
+    fixed (int * p = &s.x)
+    {
+        *p = 10;
+    }
+}
+```
+
+- D:
+```
+struct Point { int x, y; }
+void Foo()
+{
+    Point s = Point();
+    int * p = &s.x
+    *p = 10;
+}
+```
+
+##Asynchrony
+There is no `async` or `await` equivalent in D, you'll need to code yourself the mechanisms using threads or fibers from the core.thread runtime library.
 
 
 
