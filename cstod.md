@@ -30,6 +30,11 @@ Things we learnt so far:
 - syntax is exactly the same as in C# (method definitions, string qualifiers, array declarations, comments)
 - many of the keywords are exactly the same (`void`, `string`);
 
+#Coding styles
+- D programmers prefer to use the camelCase notation instead of PascalCase for method names, variable names and enum members;
+- Module names (C# namespaces) are always in lowercase due to cross-platform compatibility regarding file names.
+- If there are conflicts between a named entity and a keyword, in C# you can use verbatim identifiers (@while). D does not have verbatim identifiers, but the convention is to add an underscore at the end of the entity (while_).
+
 #Type system
 ##Built-in types
 Basic type names are very similar in both languages with the following differences:
@@ -472,6 +477,16 @@ auto GiveMeFive()
 }
 ```
 
+##Exception handling
+`try`, `catch`, `finally` semantics are exactly the same in D, but the `Exception` hierarchy is different. Your custom exceptions must derive from `Exception` class like in C#, but `Exception` class is inheriting the `Error` and `Throwable`. The last two exceptions are not intended to be caught, being considered fatal errors.
+Another way to handle exceptions in D is using `scope` statements:
+```
+void Foo()
+{
+    scope(exit) { // this block is executed unconditionally at the end of the function }
+    scope(success) { // this block is executed at the end of the function if no exception is thrown }
+    scope(failure) { // this block is executed at the end of the function if exception is thrown }
+```
 
 
 
