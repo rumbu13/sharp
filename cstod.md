@@ -173,7 +173,7 @@ interface C {
 ```
 
 ##Generic Types
-D is not using generics, instead, it has a more powerful concept named __templates__.
+D is not using generics, instead it has a more powerful concept named __templates__.
 
 - C#:
 ```
@@ -354,11 +354,37 @@ foo.bar(); // method call
 SomeClass c = new SomeClass(); // class initialization
 SomeStruct s = SomeStruct(); //struct initialization
 List!T list = new List!T();
-Dictionary!(string, int) = new Dictionary!(string, int)!
+Dictionary!(string, int) = new Dictionary!(string, int);
 ```
 Differences:
 - Structs in D are initialized without the `new` keyword.
 - Generic types in D are initialized using `!` and by specifing types between parantheses. If there is only one specialisation, parantheses can be omitted.
+
+##Using namespaces
+D is importing modules instead of using namespaces. A collection of modules in D in named `package`. There is one-to-one correspondence between D modules and filenames and one-to-one correspondence between packages and folders.
+
+- C#
+```
+using System;
+using System.Collections;
+```
+- D:
+```
+import system;
+//this will try to import 'system.d' from the current folder. 
+//if 'system' is a folder name, it will try to import a special file named 'package.d'
+import system.collections;
+//this will import the file 'collections.d' from a folder named 'system'.
+```
+if you are creating your own namespaces, the closest match for simulating C# namespaces is a trick used to import C++ code in D:
+```
+extern (C++, MyNamespace)
+{
+    class MyClass { ...}
+}
+//Fully qualified name of MyClass is MyNamespace.MyClass 
+```
+
 
 ##Selection statements
 The `if else` statement has the same structure as in C#:
@@ -544,6 +570,11 @@ void Foo()
 ##Asynchrony
 There is no `async` or `await` equivalent in D, you'll need to code yourself the mechanisms using threads or fibers from the core.thread runtime library.
 
+##D specific statements
+- You can write assembler directly in code using the `asm` statement: ( `asm { ... }`)
+- You can copy-paste parameterized code using the `mixin` statement: ( `mixin("x = 0;")`)
+- You can save some typing using the `with` statement: `with(expression) { statement1; statement2; }' 
+For further details, please consult the D official language reference on dlang.org.
 
 
 
