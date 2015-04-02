@@ -119,8 +119,8 @@ enum Options {
     All = Option1 | Option2
 }
 ```
-##Structs and classes
-Struct and classes are declared exactly the same way in D except:
+##Structs
+Struct are declared exactly the same way in D except:
 - There is no explicit layout in D. Nevertheless, there is a solution in the standard library.
 - Structs cannot implement interfaces;
 - D has _unions_, the equivalent of a C# _struct_ with explicit layout where all fields offsets are 0:
