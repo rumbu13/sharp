@@ -250,9 +250,10 @@ There is no such concept in D language. All types must be known at compile time 
 ##Boxing
 Value types in D are not boxed or unboxed automatically and do not inherit from ValueType. Also, you cannot implement interfaces for value types. 
 
-Depending on your purpose, there are alternatives to boxing in D: if you just want to have a container for several types you can use [std.variant](http://dlang.org/phobos/std_variant.html); if you want to write general purpose method with object parameters, use generics:
+Depending on your purpose, there are alternatives to boxing in D: 
+- if you just want to have a container for several types you can use [std.variant](http://dlang.org/phobos/std_variant.html); - if you want to write general purpose method with object parameters, use generics;
 
-- C#
+- C#:
 ```
 int a; float b;
 object o = a;
@@ -584,6 +585,7 @@ void Foo()
     scope(exit) { // this block is executed unconditionally at the end of the function }
     scope(success) { // this block is executed at the end of the function if no exception is thrown }
     scope(failure) { // this block is executed at the end of the function if exception is thrown }
+}
 ```
 ##Locking
 Locking at method level in D is done using a keyword (`synchronized`) instead of an attribute. In statements, the same keyword is used instead of `lock` but a locking object is not always required:
