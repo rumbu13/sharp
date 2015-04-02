@@ -250,6 +250,34 @@ There is no such concept in D language. All types must be known at compile time 
 ##Boxing
 Value types in D are not boxed or unboxed automatically and do not inherit from ValueType. Also, you cannot implement interfaces for value types. 
 
+Depending on your purpose, there are alternatives to boxing in D: if you just want to have a container for several types you can use [std.variant](http://dlang.org/phobos/std_variant.html); if you want to write general purpose method with object parameters, use generics:
+
+- C#
+```
+int a; float b;
+object o = a;
+o = b;
+b = (float)o;
+
+string Foo(object obj)
+{
+    return obj.ToString();
+}
+```
+
+- D:
+```
+int a; float b;
+Variant!(int, float) v = a;
+v = b;
+b = cast(float)v;
+
+string Foo(T)(T obj)
+{
+    return to!string(obj);
+}
+```
+
 ##Nullable types
 Value types are not nullable in D language. There are solutions in the standard library to simulate this behaviour:
 
