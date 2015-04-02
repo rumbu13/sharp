@@ -227,10 +227,13 @@ struct Event(Sender, Args)
     void opOpAssign(string op)(void delegate(Sender, Args) dg) if (op == "-")
     {
         for(size_t i = 0; i < delegates.length; i++)
+        {
             if (delegates[i] is dg)
             {
                 delegates = delegates[0 .. i] ~ delegates[i + 1 .. $];
+                break;
             }
+        }
     }
     
 }
@@ -731,6 +734,7 @@ Notes:
 - strings in D are not culture sensitive by default like in C#. Sorting, finding, comparing them or changing case can lead to unexpected results, strings comparisons and transformations are performed in D with array semantics (ordinal).
 - there is no `StringBuilder` class in D to manipulate strings. Instead you can use the `std.array.Appender!string`, but it's optimized only for append operations, inserts and removes are not cheap in terms of performance.
 - formating is done in C way. Please read [printf](http://www.cplusplus.com/reference/cstdio/printf/) documentation.
+
 
 
 
